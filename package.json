@@ -4,7 +4,7 @@
   "description": "Command-line AI agent powered by Kimi K3 — chat in your terminal, it runs real system tasks",
   "type": "module",
   "bin": {
-    "chesto": "./chesto.mjs"
+    "chesto": "chesto.mjs"
   },
   "files": [
     "chesto.mjs",
@@ -13,11 +13,18 @@
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["ai", "agent", "cli", "kimi", "kimi-k3", "chesto"],
+  "keywords": [
+    "ai",
+    "agent",
+    "cli",
+    "kimi",
+    "kimi-k3",
+    "chesto"
+  ],
   "author": "Chesto (jinyuanwong)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jinyuanwong/chesto-cli.git"
+    "url": "git+https://github.com/jinyuanwong/chesto-cli.git"
   }
 }
