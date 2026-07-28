@@ -51,7 +51,7 @@ CHESTO_BASE_URL=http://localhost:11435/v1 CHESTO_API_KEY=mock chesto
 ## Roadmap
 
 - Human-in-the-loop tools: connect the [Chesto task marketplace](https://chesto.ai) (public discovery: [`agent-card.json`](https://chesto.ai/.well-known/agent-card.json) · [`skill.md`](https://chesto.ai/skill.md) · [`llms.txt`](https://chesto.ai/llms.txt)) so the agent can call **real human actions**, not just APIs.
-- npm package (`npm install -g chesto-cli`).
+- npm package (`npm install -g chesto`).
 
 ---
 

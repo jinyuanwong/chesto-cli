@@ -1,5 +1,5 @@
 {
-  "name": "chesto-cli",
+  "name": "chesto",
   "version": "0.1.0",
   "description": "Command-line AI agent powered by Kimi K3 — chat in your terminal, it runs real system tasks",
   "type": "module",
