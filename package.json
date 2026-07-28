@@ -6,6 +6,10 @@
   "bin": {
     "chesto": "./chesto.mjs"
   },
+  "files": [
+    "chesto.mjs",
+    "mock-server.mjs"
+  ],
   "engines": {
     "node": ">=18"
   },
