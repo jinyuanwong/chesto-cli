@@ -1,0 +1,22 @@
+{
+  "name": "chesto-cli",
+  "version": "0.1.0",
+  "description": "Alias of the `chesto` package. Prefer: npm install -g chesto",
+  "type": "module",
+  "bin": {
+    "chesto": "./cli.js"
+  },
+  "dependencies": {
+    "chesto": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["ai", "agent", "cli", "kimi", "kimi-k3", "chesto"],
+  "author": "Chesto (jinyuanwong)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinyuanwong/chesto-cli.git"
+  }
+}
