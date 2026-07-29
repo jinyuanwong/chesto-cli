@@ -16,8 +16,11 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import readline from 'node:readline/promises';
 
-const BASE_URL = process.env.CHESTO_BASE_URL || 'https://api.moonshot.ai/v1';
 const API_KEY = process.env.CHESTO_API_KEY || process.env.MOONSHOT_API_KEY || '';
+// key 前缀决定走哪条路：chesto 发的 key → chesto 网关；Moonshot 的 sk- → 直连。
+// 显式设置 CHESTO_BASE_URL 时以它为准（逃生通道 / 本地 mock / 自建后端）。
+const BASE_URL = process.env.CHESTO_BASE_URL ||
+  (API_KEY.startsWith('chesto_') ? 'https://chesto.ai/api/v1' : 'https://api.moonshot.ai/v1');
 const MODEL = process.env.CHESTO_MODEL || 'kimi-k3';
 
 const argv = process.argv.slice(2);
@@ -166,7 +169,9 @@ const SYSTEM = `你是 chesto，Chesto 出品的命令行 AI Agent，底层是�
 
 async function main() {
   if (!API_KEY) {
-    console.log('缺少 API key。请设置环境变量:\n  export CHESTO_API_KEY=sk-...   # https://platform.moonshot.ai 获取');
+    console.log(`缺少 API key。两种任选其一:
+  export CHESTO_API_KEY=chesto_...   # chesto key，走 chesto.ai 网关（推荐）
+  export CHESTO_API_KEY=sk-...       # 自己的 Moonshot key，直连 https://platform.moonshot.ai`);
     process.exit(1);
   }
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });

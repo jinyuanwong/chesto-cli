@@ -37,9 +37,14 @@ CHESTO_BASE_URL=http://localhost:11435/v1 CHESTO_API_KEY=mock chesto
 
 | env | default | notes |
 |---|---|---|
-| `CHESTO_API_KEY` | — | Moonshot API key |
-| `CHESTO_BASE_URL` | `https://api.moonshot.ai/v1` | point to mock / self-hosted / any OpenAI-compatible backend |
+| `CHESTO_API_KEY` | — | your key decides the route: `chesto_...` → chesto.ai gateway, `sk-...` → Moonshot direct |
+| `CHESTO_BASE_URL` | auto by key prefix | set explicitly to override: mock / self-hosted / any OpenAI-compatible backend |
 | `CHESTO_MODEL` | `kimi-k3` | use `kimi-k2.5` for ~5× cheaper development |
+
+Two ways to connect — you choose by which key you use:
+
+- **chesto gateway** (`chesto_...` key): no Moonshot account needed, requests relay through chesto.ai. The gateway's exact running source is public in [`gateway/`](gateway/) — it never logs message content.
+- **direct** (`sk-...` key): your own Moonshot account, requests go straight to api.moonshot.ai. Nothing passes through chesto — full independence, and your escape hatch if our gateway is ever down.
 
 ## Implementation notes
 
